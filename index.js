@@ -3,9 +3,8 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import userSchema from './models/users';
 
-const app = express()
-const port = 4000
-const users = [];
+const app = express();
+const port = 4000;
 
 mongoose.connect('mongodb+srv://mariab:monotono23@cluster0-mcj2c.mongodb.net/marveldb?retryWrites=true&w=majority', {useNewUrlParser: true});
 
@@ -21,17 +20,36 @@ app.use(bodyParser.json())
 app.post('/signUp', async (req,res) => {
 
   try {
-    const { name, email, password } = req.body
+    const { name, email, password } = req.body;
 
+    if (name === "") {
+      return res.json({message: "Ups... need to enter a name"})
+    } 
+    
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    if (!email.match(re)) {
+      return res.json({message: "Ups... not a valid email"})
+    }
+
+    const validateEmail = await userSchema.findOne({ "email": email })
+    if (validateEmail) {
+      return res.json({message: "Email exists!"});
+    }
+
+    const pwd = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/
+    if (!password.match(pwd)) {
+      return res.json({message: "Minimum eight characters, at least one letter, one number and one special character"});
+    }
+    
     const newUser = new userSchema({
-      name, 
+      name,
       email,
       password,
     })
 
   const result = await newUser.save()
 
-  if(result ){
+  if(result){
     return  res.json({ message: "Success... You're all Set" })
   } else {
     return res.json({
@@ -43,13 +61,7 @@ app.post('/signUp', async (req,res) => {
     return res.json({
       message: error,
     })
-  }
-
-  
-})
-
-app.post('/signup', (req, res) => {
-  res.json(users)
+  } 
 })
 
 app.get('/users', async (req, res) => {
@@ -66,7 +78,11 @@ app.get('/users', async (req, res) => {
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
 
-
+/* 
+June 21
+Password Hashing
+Login-in and getting jwt (auth) token
+*/
 
 /* SIGN UP / LOGIN */
 /* MONGO DB AS DATA STORE */
