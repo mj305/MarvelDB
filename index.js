@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 import signUp from './actions/signUp';
 import users from './actions/users';
 import signIn from './actions/signIn';
+import me from './actions/me';
 
 
 const app = express();
@@ -26,6 +27,8 @@ app.post('/signUp', signUp)
 app.post('/signIn', signIn)
 
 app.get('/users', users)
+
+app.get('/me', me)
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
 
