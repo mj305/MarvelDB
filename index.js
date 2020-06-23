@@ -20,6 +20,7 @@ db.once('open', function() {
 });
 
 app.use(bodyParser.urlencoded({ extended: false }))
+
 app.use(bodyParser.json())
 
 app.post('/signUp', signUp)
