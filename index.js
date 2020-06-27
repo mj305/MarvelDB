@@ -35,18 +35,3 @@ app.get('/users', users)
 app.get('/me', me)
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
-
-/* 
-Login-in and getting jwt (auth) token
-*/
-
-/* SIGN UP / LOGIN */
-/* MONGO DB AS DATA STORE */
-/* Once user is sing-in to account only sign out needs to show */
-
-
-/* 
-Name: 
-email: (also used as username)
-password: 
-*/

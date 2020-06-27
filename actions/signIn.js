@@ -34,7 +34,7 @@ const signIn = async (req, res) => {
        } else {
         const token = jwt.sign({ email: user.email, name: user.name }, privateKey);
         console.log(token)
-        return res.json ({message: token})
+        return res.json ({message: "You are In!", token})
        }
       
   } catch (error) {
