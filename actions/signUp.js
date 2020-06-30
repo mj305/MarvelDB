@@ -1,5 +1,6 @@
 import bcrypt from 'bcryptjs';
 import userSchema from '../models/users';
+import sendEmail from './SendEmail';
 
 
 const signUp = async (req,res) => {
@@ -37,6 +38,24 @@ const signUp = async (req,res) => {
   const result = await newUser.save()
 
   if(result){
+
+
+    const mailOptions = {
+      from: 'marvelcomicsreactapp@gmail.com',
+      to: email,
+      subject: 'Welcome!',
+      text: 'We are so excited to have you and be part of the community...'
+    };
+    
+    sendEmail.sendMail(mailOptions, function(error, info){
+      if (error) {
+      console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+
+
     return  res.json({ message: "Success... You're all Set" })
   } else {
     return res.json({
