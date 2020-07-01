@@ -8,9 +8,5 @@ const sendEmail = nodemailer.createTransport({
   }
 });
 
-
-
-
-
 export default sendEmail
 

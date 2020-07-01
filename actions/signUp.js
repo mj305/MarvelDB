@@ -39,7 +39,6 @@ const signUp = async (req,res) => {
 
   if(result){
 
-
     const mailOptions = {
       from: 'marvelcomicsreactapp@gmail.com',
       to: email,
