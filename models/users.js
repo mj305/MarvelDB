@@ -6,6 +6,7 @@ const userSchema = new Schema({
     type: String,
     unique: true,
   },
+  resetCode: String,
   password: String,
 });
 
