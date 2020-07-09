@@ -12,6 +12,7 @@ const forgotPassword = async (req, res) => {
     }
 
     const validateEmail = await userSchema.findOne({ "email": email })
+    console.log(validateEmail)
     if (validateEmail) {
       const token = randomKey(5);
       validateEmail.resetCode = token;
@@ -21,7 +22,7 @@ const forgotPassword = async (req, res) => {
         from: 'marvelcomicsreactapp@gmail.com',
         to: email,
         subject: 'Password Reset!',
-        html: `<p>You are reseting your password</p><a href="${process.env.APP_URL}/forgotpassword/${token}"> Click Here... </a>`
+        html: `<p>You are reseting your password</p><a href="${process.env.APP_URL}/resetpassword/${token}/${validateEmail.email}"> Click Here... </a>`
       };
       
       sendEmail.sendMail(mailOptions, function(error, info){
