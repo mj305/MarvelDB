@@ -27,8 +27,9 @@ const resetPassword = async (req, res) => {
     return res.json({
       message: "Something went very wrong",
     }) 
-  }
+  }npm 
 
 };
 
 export default resetPassword
+
