@@ -1,10 +1,8 @@
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
 require("dotenv/config");
-
-require("core-js/stable");
-
-require("regenerator-runtime/runtime");
 
 var _express = _interopRequireDefault(require("express"));
 
@@ -25,8 +23,6 @@ var _users = _interopRequireDefault(require("./actions/users"));
 var _signIn = _interopRequireDefault(require("./actions/signIn"));
 
 var _me = _interopRequireDefault(require("./actions/me"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var app = (0, _express["default"])();
 var port = 4000;
