@@ -13,7 +13,7 @@ import me from './actions/me';
 
 
 const app = express();
-const Port = process.env.port || 4000;
+const PORT = process.env.PORT || 4000;
 
 app.use(cors())
 
@@ -41,4 +41,4 @@ app.get('/users', users)
 
 app.get('/me', me)
 
-app.listen(Port, () => console.log(`Example app listening at http://localhost:${Port}`))
+app.listen(PORT, () => console.log(`Example app listening at http://localhost:${PORT}`))
