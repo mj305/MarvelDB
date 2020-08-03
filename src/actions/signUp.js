@@ -43,7 +43,7 @@ const signUp = async (req,res) => {
       from: 'marvelcomicsreactapp@gmail.com',
       to: email,
       subject: 'Welcome!',
-      text: 'We are so excited to have you and be part of the community...'
+      text: 'We are so excited to have you and be part of the community... Click the link: https://marvel-react-api-app.netlify.app/login'
     };
     
     sendEmail.sendMail(mailOptions, function(error, info){
