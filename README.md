@@ -4,36 +4,14 @@
 
 
 ## Technologies used
-- React
-- Express Server
+- Nodejs
+- Express
 - Mongo DB
-- ngrok
-- Material UI 
-- CSS Grid
-
-
-## The Marvel Developer API
-- The API Website: https://developer.marvel.com/
-- Sign up with your email.
-- Get your Public API Key.
-- Add ngrok's white listed URL as an Authorized Referer. 
-
-
-## Setup To Start React App
-- create-react-app
-- npx create-react-app my-app
-- cd my-app
-- npm start
-- Open http://localhost:3000 to view in the browser.
 
 
 ## Setup To Start Express Server
-- npm install express --save
-- npx express-generator
-- npm install -g express-generator
-- express
-- cd my-app
 - npm install
+- npm run dev
 
 
 ## Setup To Start MongoDB
