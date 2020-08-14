@@ -22,7 +22,7 @@ const forgotPassword = async (req, res) => {
         from: 'marvelcomicsreactapp@gmail.com',
         to: email,
         subject: 'Password Reset!',
-        html: `<p>You are reseting your password</p><a href="${process.env.APP_URL}/resetpassword/${token}/${validateEmail.email}"> Click Here... </a>`
+        html: `<p>You are reseting your password</p><a href="https://marvel-react-api-app.netlify.app/resetpassword/${token}/${validateEmail.email}"> Click Here... </a>`
       };
       
       sendEmail.sendMail(mailOptions, function(error, info){
